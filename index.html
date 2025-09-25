@@ -5,53 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Map with Routes and Petrol Pumps</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="styles.css"> <!-- Optional for custom styles -->
+    <link rel="stylesheet" href="style.css"> <!-- Optional for custom styles -->
 </head>
 <body>
 
     <h1>Map with Routes and Nearby Petrol Pumps</h1>
 
-    <hr>
-    <label for="commuteType">Commute Type</label>
-    <select name="commuteType" id="commuteType">
-        <option value="commute_nearby">City Ride</option>
-        <option value="commute_long">Vacations</option>
-        <option value="commute_long">Country Side</option>
+    <div class="box">
+        <div class="boxhead">
+        <img src="image/PXL_20250102_151443171.RAW-01.COVER.jpg" alt="server" style="width:300px">
+        
+        
+        <div class="boxbody">
+            <p> @Wegemappe</p>
+            <p> Cool right!</p>
+    
+            <hr>
+            <label for="commuteType">Commute Type</label>
+            <select name="commuteType" id="commuteType">
+                <option value="commute_nearby">City Ride</option>
+                <option value="commute_long">Vacations</option>
+                <option value="commute_long">Country Side</option>
 
-    </select>
-    <label for="ridePriority">Priority</label>
-    <select name="ridePriority" id="ridePriority">
-        <option value="priority_cheap">Near Starting Point</option>
-        <option value="priority_brand">Brand</option>
-        <option value="priority_short_route">Near End Point</option>
-        <option value="priority_elite">Middle of Journey</option>
-    </select>
-    <input type="text" id="priority-token" name="priority-token" style="width: 300px;" />
-    <button onclick="rank_optimize()">Final Autonomy</button>
-   
-
-    <div id="map" style="width: 100%; height: 80vh;"></div>
-
-    <div class="controls">
-        <input type="text" id="address-input" placeholder="Enter Address" />
-        <button id="set-start">Set Start Point</button>
-        <button id="set-end">Set End Point</button>
-        <button id="calculate-route">Calculate Route</button>
-        <button id="find-petrol-pumps">Find Nearby Petrol Pumps</button>
-        <button id="reset-map">Reset Map</button>
-        <button id="optimize-pump-route">Optimize Pump Route</button>
-        <button id="test-shortpumprouter">Short pump test</button>
+            </select>
+            <label for="ridePriority">Priority</label>
+            <select name="ridePriority" id="ridePriority">
+                <option value="priority_cheap">Near Starting Point</option>
+                <option value="priority_brand">Brand</option>
+                <option value="priority_short_route">Near End Point</option>
+                <option value="priority_elite">Middle of Journey</option>
+            </select>
+            <input type="text" id="priority-token" name="priority-token" style="width: 300px;" />
+            <button onclick="rank_optimize()">Final Autonomy</button>
+        
+        </div>
+    
     </div>
-    <form id="LongTripForm">
-        <label for="maxFuel">Max fuel capacity (L):</label>
-        <input type="number" id="maxFuel" name="maxFuel"/>
-        <label for="efficiency">Efficiency (Km/L):</label>
-        <input type="number" id="efficiency" name="efficiency"/>
-        <label for="minFuelLimit">Minimum gas in tank to start pump search (%):</label>
-        <label for="minFuelLimit">Minimum gas in tank to start pump search (%öö):</label>
-        <input type="number" id="minFuelLimit" name="minFuelLimit"/>
-        <button type="submit">Submit</button>
-    </form>
+
+    
+
+
+    <div id="map" style="width: 80%; height: 60vh;"></div>
+
+    <div id="mop" style="width: 100%; height: 60vh;">
+
+        <div class="controls">
+            <input type="text" id="address-input" placeholder="Enter Address" />
+            <button id="set-start">Set Start Point</button>
+            <button id="set-end">Set End Point</button>
+            <button id="calculate-route">Calculate Route</button>
+            <button id="find-petrol-pumps">Find Nearby Petrol Pumps</button>
+            <button id="reset-map">Reset Map</button>
+            <button id="optimize-pump-route">Optimize Pump Route</button>
+            <button id="test-shortpumprouter">Short pump test</button>
+        </div>
+
+
+
+        <form id="LongTripForm">
+            <label for="maxFuel">Max fuel capacity (L):</label>
+            <input type="number" id="maxFuel" name="maxFuel"/>
+            <label for="efficiency">Efficiency (Km/L):</label>
+            <input type="number" id="efficiency" name="efficiency"/>
+            <label for="minFuelLimit">Minimum gas in tank to start pump search (%öö):</label>
+            <input type="number" id="minFuelLimit" name="minFuelLimit"/>
+            <button type="submit">Submit</button>
+        </form>
+
+
+
+
+    </div>
+
+   
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/@turf/turf@7.2.0/turf.min.js"></script>

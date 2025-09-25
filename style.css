@@ -13,10 +13,25 @@ body {
     color: #333;
 }
 
+
+
 /* Title styling */
 h1 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+/*Command box1*/
+.box {
+    font-style: italic;
+    width:max-content;
+    float: left; 
+    
+}
+
+.boxbody {
+    font-style: normal;
+    float:right
 }
 
 /* Map container styling */
@@ -26,9 +41,19 @@ h1 {
     border: 2px solid #ddd;
     border-radius: 8px;
     margin-bottom: 20px;
+    float: left;
 }
 
-/* Controls styling */
+#mop {
+    width: 20%;
+    height: 80vh;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    
+}
+
+/*Command box2*/
 .controls {
     display: flex;
     justify-content: space-between;
@@ -43,9 +68,10 @@ h1 {
     border-radius: 5px;
     margin: 5px;
     border: 1px solid #ccc;
+    width: 150px;
 }
 
-/* Button styling */
+/* Button styling for command box2 */
 .controls button {
     background-color: #4CAF50;
     color: white;
