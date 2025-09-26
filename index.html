@@ -3,23 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map with Routes and Petrol Pumps</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css"> <!-- Optional for custom styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
+  
 
-    <h1>Map with Routes and Nearby Petrol Pumps</h1>
+<style>
+body {
+  background-image: url("PXL_20250102_151443171.RAW-01.COVER.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode:soft-light; 
+}
+</style>
 
-    <div class="box">
-        <div class="boxhead">
-        <img src="image/PXL_20250102_151443171.RAW-01.COVER.jpg" alt="server" style="width:300px">
-        
-        
-        <div class="boxbody">
-            <p> @Wegemappe</p>
-            <p> Cool right!</p>
-    
+<h1>Navigate, Play.. </h1>
+<p>find your nerby petrol station.., and related routes to reach your destination :P,  we will add more feature later</p>
+
+<div class="map-wrapper">
+    <div id="map" style="width: 100%; height: 100%;"></div>
+
+
+    <!-- Right Command Panel -->
+    <div class="command-panel">
+        <!-- Top box (Command Box 1) -->
+        <div class="command-box box">
+
+            <div class="controls">
+
+            <input type="text" id="address-input" placeholder="Enter Address" />
+            <button id="set-start">Set Start Point</button>
+            <button id="set-end">Set End Point</button> 
+
+            </div>
+        </div>
+
+        <!-- Bottom box (Command Box 2) -->
+        <div class="command-box">
+            <div class="controls">
+
+                <div class="controls">
             <hr>
             <label for="commuteType">Commute Type</label>
             <select name="commuteType" id="commuteType">
@@ -28,36 +56,31 @@
                 <option value="commute_long">Country Side</option>
 
             </select>
+
             <label for="ridePriority">Priority</label>
             <select name="ridePriority" id="ridePriority">
-                <option value="priority_cheap">Near Starting Point</option>
+                <option value="priority_cheap">Departure</option>
                 <option value="priority_brand">Brand</option>
-                <option value="priority_short_route">Near End Point</option>
-                <option value="priority_elite">Middle of Journey</option>
+                <option value="priority_short_route">On the way</option>
+                <option value="priority_elite">Destination</option>
             </select>
             <input type="text" id="priority-token" name="priority-token" style="width: 300px;" />
             <button onclick="rank_optimize()">Final Autonomy</button>
-        
-        </div>
-    
-    </div>
+            <label for="info1"> <br> 
+                Keep it City Ride  | <br>
+                Website is under development, our objective is to improve <br> 
+                back end and make window more responsive later <br>
+                 </label>
 
-    
-
-
-    <div id="map" style="width: 80%; height: 60vh;"></div>
-
-    <div id="mop" style="width: 100%; height: 60vh;">
-
-        <div class="controls">
-            <input type="text" id="address-input" placeholder="Enter Address" />
-            <button id="set-start">Set Start Point</button>
-            <button id="set-end">Set End Point</button>
             <button id="calculate-route">Calculate Route</button>
-            <button id="find-petrol-pumps">Find Nearby Petrol Pumps</button>
-            <button id="reset-map">Reset Map</button>
+           
+           
+            
+             <button id="find-petrol-pumps">Find Nearby Petrol Pumps</button>
+
             <button id="optimize-pump-route">Optimize Pump Route</button>
-            <button id="test-shortpumprouter">Short pump test</button>
+            
+            <button id="test-shortpumprouter">Short pump test</button> 
         </div>
 
 
@@ -67,29 +90,24 @@
             <input type="number" id="maxFuel" name="maxFuel"/>
             <label for="efficiency">Efficiency (Km/L):</label>
             <input type="number" id="efficiency" name="efficiency"/>
-            <label for="minFuelLimit">Minimum gas in tank to start pump search (%öö):</label>
+            <label for="minFuelLimit">Minimum gas in tank to start pump search (%):</label>
             <input type="number" id="minFuelLimit" name="minFuelLimit"/>
             <button type="submit">Submit</button>
         </form>
 
+         <button id="reset-map">Reset Map</button>
 
 
-
+            </div>
+        </div>
     </div>
-
-   
+</div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/@turf/turf@7.2.0/turf.min.js"></script>
     <script src="script.js" defer></script>
     <script src="route-manage.js" defer></script>
     <script src="outputs.js" defer></script>
-    
-    
-    
 
-    
-    
-    
 </body>
 </html>
